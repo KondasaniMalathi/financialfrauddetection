@@ -1,0 +1,46 @@
+{% extends 'home.html' %}
+
+{% block content %}
+    <section class=" section-padding">
+        <div class="container">
+            <div class="row">
+    
+                <div class="col-lg-8 mx-auto col-12" style="background-color: rgba(88, 91, 97, 0.61); margin-top: 200px;border-radius: 20px;">
+    
+                    <h1 class="hero-title text-center mb-5" style="color: aliceblue; margin-top: 10px;">Model Training</h1>
+                    {% if msg %}
+                    <h5 style="color: rgb(247, 247, 247);text-align: center;">{{msg}}</h5>
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-lg-8 col-11 mx-auto">
+                            <form action="{{url_for('model')}}" role="form" method="post" enctype="multipart/form-data">
+    
+                                <div class="form-floating p-0" >
+                                    <select class="form-data" name="algo" style="width: 500px;border-radius: 20px; height: 40px;color: black;">
+                                        <option hidden>Select an Algorithm</option>
+                                        <option value="1">DNN - deep neural network</option>
+                                        <option value="2">Recurrent Neural Network RNN </option>
+                                        <option value="3">SGDClassifier (Stochastic Gradient Descent)</option>
+                                        <option value="4">DecisionTreeClassifier</option>
+                                        <option value="5">RandomForestClassifier</option>
+                                        <option value="6">XGBClassifier</option>
+                                        <option value="7">GradientBoostingClassifier </option>
+                                        <option value="8">Fedrated learning with Randomforest </option>
+                                    </select>
+                                </div>
+    
+                                <div class="d-flex justify-content-center mt-4 mb-3"> 
+                                    <button type="submit" class="btn custom-btn"
+                                        style="width: 100px;background-color: rgb(118, 171, 218);">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div> 
+                </div>
+                
+            </div>
+           
+        </div><br>
+{% endblock %}

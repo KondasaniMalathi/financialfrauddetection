@@ -1,0 +1,90 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<section class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto col-12" style="background-color: rgba(88, 91, 97, 0.61); margin-top: 150px; border-radius: 20px; padding: 20px;">
+                <h2 class="hero-title text-center mb-5" style="color: aliceblue; margin-top: 5px;">Predicting Fraud Detection</h2>
+                
+                <div class="row">
+                    <div class="col-lg-10 col-11 mx-auto">
+                        {% if prediction %}
+                          {% if prediction == 'No Fraud Transaction' %}
+                          <h2 style="color: rgb(247, 247, 247); text-align: center; margin-bottom: 40px;">Prediction: {{ prediction }}</h2>
+                          {% else %}
+                          <h2 style="color: red; text-align: center; margin-bottom: 40px;">Prediction: {{ prediction }}</h2>
+                          {% endif %}
+                        {% endif %}
+                        
+                        <form action="{{ url_for('prediction') }}" method="post" role="form">
+                            <!-- Row for Select and Amount fields -->
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <select id="type" name="type" class="form-select" style="border-radius: 30px; color: rgb(0, 0, 0); height: 50px;" required>
+                                            <option value="">Choose type</option>
+                                            <option value="0">CASH_IN</option>
+                                            <option value="1">CASH_OUT</option>
+                                            <option value="2">DEBIT</option>
+                                            <option value="3">PAYMENT</option>
+                                            <option value="4">TRANSFER</option> 
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-floating">
+                                        <input type="number" step="any" name="amount" class="form-control" style="border-radius: 30px; color: rgb(0, 0, 0); height: 50px;" placeholder="Enter Amount" required>
+                                        <label for="amount">Amount</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Row for Old and New Balance Origin fields -->
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-floating">
+                                        <input type="number" step="any" name="oldbalanceOrg" class="form-control" style="border-radius: 30px; color: rgb(0, 0, 0); height: 50px;" placeholder="Enter Old Balance Origin" required>
+                                        <label for="oldbalanceOrg">Old Balance Origin</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-floating">
+                                        <input type="number" step="any" name="newbalanceOrig" class="form-control" style="border-radius: 30px; color: rgb(0, 0, 0); height: 50px;" placeholder="Enter New Balance Origin" required>
+                                        <label for="newbalanceOrig">New Balance Origin</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Row for Old and New Balance Destination fields -->
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-floating">
+                                        <input type="number" step="any" name="oldbalanceDest" class="form-control" style="border-radius: 30px; color: rgb(0, 0, 0); height: 50px;" placeholder="Enter Old Balance Destination" required>
+                                        <label for="oldbalanceDest">Old Balance Destination</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-floating">
+                                        <input type="number" step="any" name="newbalanceDest" class="form-control" style="border-radius: 30px; color: rgb(0, 0, 0); height: 50px;" placeholder="Enter New Balance Destination" required>
+                                        <label for="newbalanceDest">New Balance Destination</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="d-flex justify-content-center mt-4 mb-3"> 
+                                <button type="submit" class="btn custom-btn" style="width: 600px; border-radius: 20px; margin-bottom: 15px; height: 50px; background-color: rgb(138, 140, 143); color: black;">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br>
+</section>
+
+{% endblock %}

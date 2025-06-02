@@ -1,0 +1,49 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<section class=" section-padding">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-8 mx-auto col-12" style="background-color: rgba(88, 91, 97, 0.61); margin-top: 150px;border-radius: 20px;">
+
+                <h1 class="hero-title text-center mb-5" style="color: aliceblue; margin-top: 5px;">Upload Dataset</h1>
+
+                <div class="row">
+                    <div class="col-lg-8 col-11 mx-auto">
+                        <form action="{{url_for('upload')}}" role="form" method="post" enctype="multipart/form-data">
+
+                            <div class="form-data p-0" >
+                                <input type="file" style="border-radius: 30px;color: rgb(0, 0, 0);" name="file" class="form-control" required>
+                            </div>
+
+                            <div class="d-flex justify-content-center mt-4 mb-3"> 
+                                <button type="submit" class="btn custom-btn"
+                                    style="width: 100px;background-color: rgb(118, 171, 218);">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div> 
+            </div>
+            
+        </div>
+       
+    </div><br>
+    
+    <center>
+        {% if df %}
+        <div style="color: rgb(255, 255, 255); margin-top: 0px; height: 300px; width: 1000px; overflow: auto;">
+            {{df | safe}}
+        </div>
+    {% endif %}
+    </center><br><br>
+    
+
+
+</section>
+
+
+{% endblock %}

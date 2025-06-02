@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+
+
+{% block content%}
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-7" style="margin-top: 70px;">
+                    <div class="section-title position-relative pb-3 mb-5">
+                        <h5 class="fw-bold text-primary text-uppercase">About Project </h5>
+                        <h3 class="mb-0 fw-bold text-white">Transparency and Privacy: The Role of
+                            Explainable AI and Federated Learning
+                            in Financial Fraud Detection
+                            </h3>
+                    </div>
+                    <p class="mb-4"  style="color: rgb(255, 255, 255);">The rapid evolution of digital finance has escalated the challenges 
+                        associated with detecting and preventing financial fraud. Traditional fraud detection
+                         systems, relying heavily on methods like Deep Neural Networks (DNNs), Recurrent 
+                         Neural Networks (RNNs), and Stochastic Gradient Descent (SGD), often struggle with
+                          issues of opacity and centralized data handling, which can compromise both interpretability 
+                          and data privacy. In response, the integration of Explainable AI (XAI) and Federated Learning 
+                          (FL) offers a promising solution. XAI enhances the transparency of fraud detection models,
+                           making their decisions more interpretable and trustworthy. Concurrently, Federated Learning 
+                           addresses privacy concerns by enabling a decentralized approach to model training, where 
+                           insights are gleaned without exposing individual data points.</p>
+                </div>
+                <div class="col-lg-5" style="min-height: 400px;">
+                    <div class="position-relative h-100" style="margin-top: 20px;">
+                        <img class="position-absolute rounded wow zoomIn" data-wow-delay="0.9s" src="/static/img/about.jpg" style="object-fit: cover;height: 450px;width: 400px;border-radius: 20%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
